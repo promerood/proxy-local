@@ -6,7 +6,7 @@ const fs = require("fs");
 const path = require("path");
 
 const app = express();
-const port = process.env.PORT || 8081;
+const port = process.env.PORT || 8082;
 
 // Function to read cookies from file
 function loadCookies() {
@@ -125,5 +125,5 @@ app.get("/health", (req, res) => {
 
 app.listen(port, () => {
   console.log(`CORS Proxy server running on port ${port}`);
-  console.log("Use: http://localhost:8081/proxy?url=[url]");
+  console.log(`Use: http://localhost:${port}/proxy?url=[url]`);
 });

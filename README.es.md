@@ -27,7 +27,7 @@ Servidor proxy avanzado que inyecta cookies de sesión en las peticiones para si
 - Maneja redirects y errores
 - Endpoint de health check
 
-**Puerto:** 8081 (por defecto)
+**Puerto:** 8082 (por defecto)
 
 ## 📦 Instalación
 
@@ -63,6 +63,13 @@ npm run start:session
 node session-proxy.js
 ```
 
+### Iniciar Ambos Servidores
+```bash
+npm run start:both
+# o
+npm run dev
+```
+
 ## 📡 Endpoints
 
 ### Servidor CORS Anywhere
@@ -77,28 +84,28 @@ fetch('http://localhost:8081/https://api.ejemplo.com/datos')
 
 ### Servidor con Cookies
 ```
-GET/POST http://localhost:8081/proxy?url=[URL_DESTINO]
+GET/POST http://localhost:8082/proxy?url=[URL_DESTINO]
 ```
 
 **Ejemplos:**
 ```javascript
 // GET request
-fetch('http://localhost:8081/proxy?url=https://sitio.com/api/datos')
+fetch('http://localhost:8082/proxy?url=https://sitio.com/api/datos')
 
 // POST request con parámetros adicionales
-fetch('http://localhost:8081/proxy?url=https://sitio.com/api/login&param1=value1')
+fetch('http://localhost:8082/proxy?url=https://sitio.com/api/login&param1=value1')
 ```
 
 **Health Check:**
 ```
-GET http://localhost:8081/health
+GET http://localhost:8082/health
 ```
 
 ## 🛠️ Variables de Entorno
 
 | Variable | Descripción | Valor por Defecto |
 |----------|-------------|-------------------|
-| `PORT` | Puerto del servidor | 8081 |
+| `PORT` | Puerto del servidor | 8081 (CORS) / 8082 (Sesión) |
 | `HOST` | Host del servidor | 0.0.0.0 |
 
 ## 📋 Casos de Uso

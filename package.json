@@ -5,7 +5,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node cors-proxy.js",
-    "start:session": "node session-proxy.js"
+    "start:session": "node session-proxy.js",
+    "start:both": "concurrently \"npm start\" \"npm run start:session\"",
+    "dev": "npm run start:both"
   },
   "keywords": [],
   "author": "",
@@ -13,6 +15,9 @@
   "description": "",
   "engines": {
     "node": ">=20.0.0"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
   },
   "dependencies": {
     "axios": "^1.11.0",

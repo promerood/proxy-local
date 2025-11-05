@@ -27,7 +27,7 @@ Advanced proxy server that injects session cookies into requests to simulate aut
 - Handles redirects and errors
 - Health check endpoint
 
-**Port:** 8081 (default)
+**Port:** 8082 (default)
 
 ## 📦 Installation
 
@@ -63,6 +63,13 @@ npm run start:session
 node session-proxy.js
 ```
 
+### Start Both Servers
+```bash
+npm run start:both
+# or
+npm run dev
+```
+
 ## 📡 Endpoints
 
 ### CORS Anywhere Server
@@ -77,28 +84,28 @@ fetch('http://localhost:8081/https://api.example.com/data')
 
 ### Cookie Injection Server
 ```
-GET/POST http://localhost:8081/proxy?url=[TARGET_URL]
+GET/POST http://localhost:8082/proxy?url=[TARGET_URL]
 ```
 
 **Examples:**
 ```javascript
 // GET request
-fetch('http://localhost:8081/proxy?url=https://site.com/api/data')
+fetch('http://localhost:8082/proxy?url=https://site.com/api/data')
 
 // POST request with additional parameters
-fetch('http://localhost:8081/proxy?url=https://site.com/api/login&param1=value1')
+fetch('http://localhost:8082/proxy?url=https://site.com/api/login&param1=value1')
 ```
 
 **Health Check:**
 ```
-GET http://localhost:8081/health
+GET http://localhost:8082/health
 ```
 
 ## 🛠️ Environment Variables
 
 | Variable | Description | Default Value |
 |----------|-------------|---------------|
-| `PORT` | Server port | 8081 |
+| `PORT` | Server port | 8081 (CORS) / 8082 (Session) |
 | `HOST` | Server host | 0.0.0.0 |
 
 ## 📋 Use Cases
